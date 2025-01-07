@@ -26,8 +26,6 @@ class CountUntilServer : public rclcpp::Node {
         RCLCPP_INFO(this->get_logger(), "CountUntil Server is ready to accept goals.");
       }
 
-
-
     private:
       /**
        * @brief Callback function to handle incoming goal requests.
@@ -45,8 +43,14 @@ class CountUntilServer : public rclcpp::Node {
           const rclcpp_action::GoalUUID &uuid, 
           std::shared_ptr<const ros2_custom_interfaces::action::CountUntil::Goal> goal){
         (void)uuid;
-        (void)goal;
-        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+
+        RCLCPP_INFO(this->get_logger(), "Recieved Goal: %d", goal->target_number);
+
+        if (goal->target_number <= 0){
+          return rclcpp_action::GoalResponse::REJECT;
+        }else{
+          return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+        }
       }
 
 
@@ -68,11 +72,36 @@ class CountUntilServer : public rclcpp::Node {
         return rclcpp_action::CancelResponse::ACCEPT;
       }
 
+      /**
+       * @brief Callback function to handle accepted goals.
+       *
+       * This function is called when a new goal is accepted by the action server.
+       * It simply calls the executeGoal function to start processing the goal.
+       *
+       * @param[in] goal_handle A shared pointer to the goal handle for the accepted goal.
+       *                        The goal handle provides access to the goal message and allows
+       *                        the server to interact with the goal.
+       *
+       * @return void This function does not return any value.
+       */
       void handleAcceptedCallback(
         const std::shared_ptr<rclcpp_action::ServerGoalHandle<ros2_custom_interfaces::action::CountUntil>> goal_handle){
         executeGoal(goal_handle);
       }
 
+      /**
+       * @brief Executes the goal for the CountUntil action.
+       *
+       * This function processes the accepted goal by counting up to the target number
+       * with a specified period between counts. It logs the current count at each step
+       * and sets the final result once the target number is reached.
+       *
+       * @param[in] goal_handle A shared pointer to the goal handle for the accepted goal.
+       *                        The goal handle provides access to the goal message and allows
+       *                        the server to interact with the goal.
+       *
+       * @return void This function does not return any value.
+       */
       void executeGoal(
         const std::shared_ptr<rclcpp_action::ServerGoalHandle<ros2_custom_interfaces::action::CountUntil>> goal_handle
       ){
