@@ -89,6 +89,6 @@ This content is licensed under the [MIT License](../LICENSE). Contributions welc
 ---
 
 ### **Ready to Start?**  
-Jump to [Module 1: ROS 2 Setup & Basics](./1_workspace_basics/)!  
+Jump to [Module 1: ROS 2 Setup & Basics](/beginner/Module1/module1.rst)!  
 
 ---
