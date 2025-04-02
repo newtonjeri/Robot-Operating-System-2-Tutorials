@@ -10,9 +10,6 @@ Before starting, ensure you have:
 2. **ROS 2 Installed**: Follow the official guides:  
    - [ROS 2 Humble (Ubuntu 22.04)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)  
    - [ROS 2 Jazzy (Ubuntu 24.04)](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)  
-3. Basic knowledge of:  
-   - Linux terminal commands.  
-   - Python **or** C++ (examples provided for both).  
 
 ---
 
