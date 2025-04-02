@@ -87,7 +87,7 @@ Essential sections:
 Publisher-Subscriber Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 .. figure:: https://docs.ros.org/en/jazzy/_images/Topic-MultiplePublisherandMultipleSubscriber.gif
-   :width: 80%
+   :width: 100%
    :align: center
    :alt: Pub/Sub Model
 
@@ -276,7 +276,7 @@ Subscriber (C++):
 Service-Client Model
 ~~~~~~~~~~~~~~~~~~~
 .. figure:: https://docs.ros.org/en/jazzy/_images/Service-MultipleServiceClient.gif
-   :width: 80%
+   :width: 100%
    :align: center
    :alt: Service Model
 
