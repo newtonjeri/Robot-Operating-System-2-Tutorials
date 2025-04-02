@@ -141,6 +141,7 @@ Publisher (Python):
 Subscriber (Python):
 ^^^^^^^^^^^^^^^^^^^
 .. code-block:: python
+
     import rclpy
     from rclpy.node import Node
 
@@ -283,6 +284,7 @@ Reference `Writing a simple service and client (Python) <https://docs.ros.org/en
 Service Server:
 ^^^^^^^^^^^^^^
 .. code-block:: python
+
     from example_interfaces.srv import AddTwoInts
 
     import rclpy
@@ -317,6 +319,7 @@ Service Server:
 Service Client:
 ^^^^^^^^^^^^^^
 .. code-block:: python
+
     import sys
 
     from example_interfaces.srv import AddTwoInts
@@ -363,6 +366,7 @@ Reference `Writing a simple service and client (C++) <https://docs.ros.org/en/ja
 Service Server:
 ^^^^^^^^^^^^^^
 .. code-block:: cpp
+
     #include "rclcpp/rclcpp.hpp"
     #include "example_interfaces/srv/add_two_ints.hpp"
 
@@ -395,6 +399,7 @@ Service Server:
 Service Client:
 ^^^^^^^^^^^^^^
 .. code-block:: cpp 
+
     #include "rclcpp/rclcpp.hpp"
     #include "example_interfaces/srv/add_two_ints.hpp"
 
