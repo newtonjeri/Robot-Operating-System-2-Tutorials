@@ -93,16 +93,17 @@ Publisher-Subscriber Model
 
 Python Implementation
 ~~~~~~~~~~~~~~~~~~~~
-Reference `Writing a simple publisher and subscriber (Python) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html>`
+
+Reference: `Writing a simple publisher and subscriber (Python) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html>`_
+
 Publisher (Python):
 ^^^^^^^^^^^^^^^^^^
 .. code-block:: python
 
-    import rclpy
-    from rclpy.node import Node
+   import rclpy
+   from rclpy.node import Node
 
     from std_msgs.msg import String
-
 
     class MinimalPublisher(Node):
 
