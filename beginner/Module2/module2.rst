@@ -16,14 +16,26 @@ Package Structure
 ~~~~~~~~~~~~~~~~~
 A typical ROS 2 package contains:
 
+ament_cmake build type
 .. code-block:: text
 
-   my_first_package/
+   package_name/
    ├── CMakeLists.txt
    ├── package.xml
    ├── include/
    ├── src/
    └── launch/
+
+ament_python build type
+.. code-block:: text
+
+   package_name/
+   ├── CMakeLists.txt
+   ├── package.xml
+   ├── include/
+   ├── src/
+   └── launch/
+
 
 Creating a Package
 ~~~~~~~~~~~~~~~~~
@@ -31,13 +43,13 @@ Python package:
 
 .. code-block:: bash
 
-   ros2 pkg create my_py_pkg --build-type ament_python --dependencies rclpy
+   ros2 pkg create <package_name> --build-type ament_python --dependencies rclpy
 
 C++ package:
 
 .. code-block:: bash
 
-   ros2 pkg create my_cpp_pkg --build-type ament_cmake --dependencies rclcpp
+   ros2 pkg create <package_name> --build-type ament_cmake --dependencies rclcpp
 
 Key Files Explained
 ~~~~~~~~~~~~~~~~~~
@@ -62,12 +74,12 @@ Essential sections:
    ament_target_dependencies(my_node rclcpp)
    install(TARGETS my_node DESTINATION lib/${PROJECT_NAME})
 
-5. Nodes & Topics
+1. Nodes & Topics
 -----------------
 
 Publisher-Subscriber Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: /images/pubsub_model.png
+.. figure:: https://docs.ros.org/en/jazzy/_images/Topic-MultiplePublisherandMultipleSubscriber.gif
    :width: 60%
    :align: center
    :alt: Pub/Sub Model
