@@ -97,7 +97,9 @@ After building:
 Next Steps:
 -----------
 Proceed to :doc:`Module 2: Core Concepts </Module2/module2>` for a deeper dive.
-More content `ROS 2 Begginers: CLI tools<https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html>`_
+
+More content `ROS 2 Begginers: CLI tools <https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html>`_
+
 Explore the `ROS 2 Documentation <https://docs.ros.org/>`_
 
 .. note::
