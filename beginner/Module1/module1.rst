@@ -3,7 +3,7 @@
 Module 1: ROS 2 Setup & Basics
 ==============================
 
-This module covers the essential first steps to start working with ROS 2, including its architectural foundations.
+This module covers the essential first steps to start working with ROS 2.
 
 .. contents:: Topics Covered
    :local:
@@ -14,126 +14,91 @@ This module covers the essential first steps to start working with ROS 2, includ
 
 What is ROS 2?
 ~~~~~~~~~~~~~~
-ROS 2 is a **meta-operating system** for robotics that provides:
+ROS 2 (Robot Operating System 2) is a framework for developing robot software. It provides:
 
-- **Middleware**: DDS-based communication (Fast DDS, Cyclone DDS, etc.)
-- **Tooling**: Build system (colcon), debugging tools (rqt, ros2doctor)
-- **Ecosystem**: Standardized interfaces and packages
+- Communication tools (Nodes, Topics, Services, Actions)
+- Hardware abstraction
+- Package management
+- Cross-platform support
 
-Key Differences from ROS 1:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Key Concepts:
+~~~~~~~~~~~~~
 .. list-table::
    :header-rows: 1
-   :widths: 30 30 30
-   
-   * - Feature
-     - ROS 1
-     - ROS 2
-   * - Middleware
-     - Custom TCPROS/UDPROS
-     - DDS (Standardized)
-   * - Real-time
-     - Limited
-     - Fully supported
-   * - Platform
-     - Linux only
-     - Cross-platform
-   * - Security
-     - None
-     - Built-in (SROS)
+   :widths: 20 50
 
-Architecture Overview
-~~~~~~~~~~~~~~~~~~~~
-.. mermaid::
-   graph TD
-     A[Node] -->|Publish| B[Topic]
-     A -->|Call| C[Service]
-     A -->|Execute| D[Action]
-     B --> E[Subscriber Node]
-     C --> F[Service Server]
-     D --> G[Action Server]
-
-Key Concepts (In-Depth):
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Nodes
-^^^^^
-- **Fundamental processes** in ROS 2
-- Single-purpose (e.g., sensor driver, controller)
-- Can be written in Python, C++, or other supported languages
-- Communicate via **Topics**, **Services**, or **Actions**
-
-Topics
-^^^^^^
-- **Publish-Subscribe** pattern
-- Asynchronous, many-to-many communication
-- Data type defined by `.msg` files
-- QoS (Quality of Service) policies configurable
-
-Services
-^^^^^^^^
-- **Request-Reply** pattern
-- Synchronous communication (client blocks)
-- Defined by `.srv` files (request + response)
-- Use cases: configuration changes, calculations
-
-Actions
-^^^^^^^
-- **Asynchronous** with feedback
-- Three-part interface (Goal, Feedback, Result)
-- Built on top of topics and services
-- Ideal for long-running tasks (e.g., navigation)
+   * - Concept
+     - Description
+   * - Nodes
+     - Independent executables that perform specific tasks
+   * - Topics
+     - Asynchronous pub/sub communication channels
+   * - Services
+     - Synchronous request/reply interactions
+   * - Actions
+     - Long-running tasks with feedback
 
 2. Verify Installation
 ----------------------
 
-[... rest of your existing installation verification section ...]
+Before proceeding, ensure ROS 2 is properly installed:
+
+.. code-block:: bash
+
+   # Test C++ demo nodes
+   ros2 run demo_nodes_cpp talker
+   # In another terminal
+   ros2 run demo_nodes_cpp listener
+
+Expected Output:
+~~~~~~~~~~~~~~~
+You should see the talker publishing messages and the listener receiving them.
+
+Troubleshooting:
+~~~~~~~~~~~~~~~
+- If commands aren't found, verify sourcing:
+  
+  .. code-block:: bash
+
+     source /opt/ros/humble/setup.bash  # or 'jazzy' for Ubuntu 24.04
 
 3. Workspace & Build System
 ---------------------------
 
-[... rest of your existing workspace section ...]
+Create a Workspace:
+~~~~~~~~~~~~~~~~~~
 
-DDS Implementation Details
-~~~~~~~~~~~~~~~~~~~~~~~~~
-ROS 2 supports multiple DDS implementations:
+.. code-block:: bash
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 25 50
-   
-   * - DDS Vendor
-     - Default For
-     - Characteristics
-   * - Fast DDS
-     - Humble
-     - Balance of performance/features
-   * - Cyclone DDS
-     - Galactic
-     - Lightweight, real-time focus
-   * - Connext DDS
-     - Enterprise
-     - Commercial-grade reliability
+   mkdir -p ~/ros2_ws/src
+   cd ~/ros2_ws
 
-Quality of Service (QoS) Policies
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Critical for real-world robotics:
+Build System (colcon):
+~~~~~~~~~~~~~~~~~~~~~
+ROS 2 uses colcon as its build tool. Basic commands:
 
-.. code-block:: yaml
+.. code-block:: bash
 
-   Reliability: RELIABLE  # Or BEST_EFFORT
-   Durability: VOLATILE  # Or TRANSIENT_LOCAL
-   History: KEEP_LAST  # Or KEEP_ALL
-   Depth: 10  # Queue size
+   # Build all packages in workspace
+   colcon build
+   # Build specific package
+   colcon build --packages-select <package_name>
+   # Build with symlink (recommended for development)
+   colcon build --symlink-install
+
+Source the Workspace:
+~~~~~~~~~~~~~~~~~~~~
+After building:
+
+.. code-block:: bash
+
+   source ~/ros2_ws/install/setup.bash
 
 Next Steps:
 -----------
 - Proceed to :ref:`Module 2: Core Concepts <module2-core-concepts>`
-- Deep dive: `ROS 2 Architecture Whitepaper <https://design.ros2.org/>`_
-- Explore: `DDS and ROS 2 <https://docs.ros.org/en/rolling/Concepts/About-Different-Middleware-Vendors.html>`_
+- More content `ROS 2 Begginers: CLI tools<https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html>`
+- Explore the `ROS 2 Documentation <https://docs.ros.org/>`_
 
 .. note::
-   For production systems, always:
-   - Set appropriate QoS profiles
-   - Consider DDS vendor performance characteristics
-   - Use security enclaves (SROS) for networked robots
+   Remember to source your ROS 2 installation and workspace in every new terminal!
