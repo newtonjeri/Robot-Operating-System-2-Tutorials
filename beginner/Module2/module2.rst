@@ -183,7 +183,8 @@ Subscriber (Python):
 
 C++ Implementation
 ~~~~~~~~~~~~~~~~~~
-Reference `Writing a simple publisher and subscriber (C++) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html>`
+Reference `Writing a simple publisher and subscriber (C++) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html>`_
+
 Publisher (C++):
 ^^^^^^^^^^^^^^^
 .. code-block:: cpp
@@ -281,7 +282,8 @@ Service-Client Model
 
 Python Implementation
 ~~~~~~~~~~~~~~~~~~~~
-Reference `Writing a simple service and client (Python) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html#writing-a-simple-service-and-client-python>`
+Reference `Writing a simple service and client (Python) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html#writing-a-simple-service-and-client-python>`_
+
 Service Server:
 ^^^^^^^^^^^^^^
 .. code-block:: python
@@ -363,7 +365,8 @@ Service Client:
 
 C++ Implementation
 ~~~~~~~~~~~~~~~~~~
-Reference `Writing a simple service and client (C++) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html>`
+Reference `Writing a simple service and client (C++) <https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html>`_
+
 Service Server:
 ^^^^^^^^^^^^^^
 .. code-block:: cpp
@@ -458,5 +461,5 @@ Best Practices
 
 Next Steps
 ----------
-- :ref:`Module 3: Custom Interfaces <module3-interfaces>`
+- :ref:`Module 3: Custom Interfaces <module3-interfaces>`_
 - `ROS 2 Core Concepts Documentation <https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries.html`_
